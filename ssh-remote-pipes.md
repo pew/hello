@@ -16,8 +16,4 @@
 	
 ## commands
 ### run shell commands
-    command="./nuke $SSH_ORIGINAL_COMMAND",no-port-forwarding,no-x11-forwarding,no-agent-forwarding KEY_TYPE KEY COMMENT
-
-e.G.:
-
     command="/usr/local/bla.sh $SSH_ORIGINAL_COMMAND",no-port-forwarding,no-x11-forwarding,no-agent-forwarding, ssh-rsa publickeyhere
