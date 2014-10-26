@@ -25,7 +25,10 @@
     update-rc.d -f rng-tools remove
     
 ## export (secret) key
-	gpg --output public.txt --armor --export XXXXXXXX 	gpg --output private.txt --armor --export-secret-key XXXXXXXX
+```
+gpg --output public.txt --armor --export XXXXXXXX
+gpg --output private.txt --armor --export-secret-key XXXXXXXX
+```
 
 ## import (secret) key
 	gpg --import public.txt
