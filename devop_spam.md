@@ -1,4 +1,5 @@
 ### devop stuff
+* https://mesosphere.com/
 * http://www.consul.io/
 * https://github.com/progrium/dokku
 * https://flynn.io/
