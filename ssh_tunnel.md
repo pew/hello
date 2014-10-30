@@ -20,7 +20,10 @@ create a seperate user on the server, give the account _/bin/true_ as shell.
     ssh -A -t first-server ssh -A -t root@second-server ssh -A root@final-destination
 
 ### autossh proxy
-    autossh -f -M 20000 -D 8000 tunnel@host -N
+```
+autossh -f -M 20000 -D 8000 tunnel@host -N
+autossh -M 0 -N user@server -D 1337 -o "IdentityFile /.ssh/key" -o "ServerAliveInterval 60"
+```
 
 ### reverse / backward ssh tunnel
 from external:
