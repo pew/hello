@@ -1,4 +1,5 @@
 # apache ssl
+## vhost configuration
 
 ```
 SSLEngine on
@@ -12,5 +13,12 @@ SSLCertificateKeyFile	/etc/apache2/ssl/bla.key
 SSLCertificateChainFile	/etc/apache2/ssl/ca.pem
 
 Header add Strict-Transport-Security "max-age=15552000"
+```
 
+## redirect http to https
+add this part to your *:80 (http) vhost config
+
+```
+RewriteEngine On
+RewriteRule ^/?(.*) https://domain.tld/$1 [R=301,L]
 ```
