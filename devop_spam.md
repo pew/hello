@@ -35,3 +35,10 @@
 * http://jtobin.ca/blog/2013/12/21/basic-ec2-management-with-ansible/
 * http://www.packer.io/
 * https://boxen.github.com/
+
+### Docker
+* Weave - https://github.com/zettio/weave
+* Ambassadord - https://github.com/progrium/ambassadord
+* Warmhole - https://github.com/vishvananda/wormhole
+* QTunnel - https://github.com/getqujing/qtunnel
+* Flannel - https://github.com/coreos/flannel
