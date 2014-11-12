@@ -1,4 +1,5 @@
 ### devop stuff
+* https://github.com/rancherio/rancher - https://news.ycombinator.com/item?id=8589826
 * http://deis.io/overview/
 * https://mesosphere.com/
 * http://www.consul.io/
