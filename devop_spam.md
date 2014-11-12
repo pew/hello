@@ -1,4 +1,5 @@
 ### devop stuff
+* http://deis.io/overview/
 * https://mesosphere.com/
 * http://www.consul.io/
 * https://github.com/progrium/dokku
