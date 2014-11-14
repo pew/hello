@@ -48,3 +48,15 @@ mkdir ~/vagrant/
 cd ~/vagrant/
 vagrant package --base YOUR-VirtualBox-VM-Name
 ```
+
+## start the box
+```
+vagrant box add BOXNAME YOUR-VirtualBox-VM-Name.box
+vagrant init BOXNAME
+vagrant up
+```
+
+## login
+```
+vagrant ssh
+```
