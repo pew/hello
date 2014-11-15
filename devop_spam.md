@@ -1,4 +1,5 @@
 ### devop stuff
+* https://github.com/cloudius-systems/osv
 * https://aws.amazon.com/ecs/
 * https://access.redhat.com/products/red-hat-enterprise-linux/atomic-host-beta
 * https://github.com/rancherio/rancher - https://news.ycombinator.com/item?id=8589826
