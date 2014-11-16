@@ -14,6 +14,9 @@ all databases:
 ### mysql restore
     mysql -u root dbname < database.sql
 
+### dump and restore live via ssh
+    mysqldump --all-databases | ssh user@host mysql
+
 ### create new user
     CREATE USER 'dbname'@'localhost' IDENTIFIED BY  'password';
     GRANT USAGE ON * . * TO  'dbname'@'localhost' IDENTIFIED BY  'password' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
