@@ -60,3 +60,9 @@ vagrant up
 ```
 vagrant ssh
 ```
+
+# vagrant commands
+## add boxes
+```
+vagrant box add your-box-name file:///Users/jonas/vagrant/your-name.box
+```
