@@ -31,7 +31,5 @@ echo instance_id=$instance_id
 
 ## while loop until instance is running
 ```
-while state=$(aws ec2 describe-instances --instance-ids $instanceid --output text --query 'Reservations[*].Instances[*].State.Name'); test "$state" = "pending"; do
-  sleep 1; echo -n '.'
-done; echo " $state"
+while state=$(aws ec2 describe-instances --instance-ids $instanceid --output text --query 'Reservations[*].Instances[*].State.Name'); test "$state" = "pending"; do sleep 1; echo -n '.';done; echo "$state"
 ```
