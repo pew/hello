@@ -1,6 +1,6 @@
 # hfs bit rot
 ```
-find ~/ -type f -a ! -name '.DS_Store' -print0|xargs -0 shasum - > shasums.txt
+find ~/ -type f -a ! -name '.DS_Store' -print0|xargs -0 shasum > shasums.txt
 shasum -c < shasums.txt  > check.txt
 cat check.txt|fgrep -v OK
 ```
