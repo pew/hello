@@ -31,7 +31,7 @@
 
 ### Docker / Ansible / Chef & Co.:
 
-* http://jdlm.info/ds-docker-demo/
+* http://jdlm.info/ds-docker-demo/ - https://news.ycombinator.com/item?id=8630451
 * https://devopsu.com/blog/docker-misconceptions/
 * https://devopsu.com/blog/ansible-vs-shell-scripts/
 * https://devopsu.com/books/
