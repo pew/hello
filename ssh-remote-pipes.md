@@ -13,6 +13,11 @@
     tar cf - music/|ssh server 'cat - > /tmp/music.tar'
 ### tar pull
     ssh -o ProxyCommand='ssh user@middleman nc -w 10 %h %p' user@target "tar cpf - /opt"|tar xvf - -C /
+
+### extract tar
+```
+cat bla.tgz|ssh host tar -xzf - -C /opt/restore/
+```
 	
 ## commands
 ### run shell commands
