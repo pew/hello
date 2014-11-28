@@ -41,5 +41,7 @@ syncthing
 	* global discovery
 	* start browser
 
+### on every syncthing installation again
+
 * add/connect every devices via the *add device* button
-* on your client installation, you can enter the hostname and port (example.com:22000) in the *Addresses* field
+* on your client installation, you can enter the hostname and port (example.com:22000) in the *Addresses* field if you have an server running all the time
