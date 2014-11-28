@@ -50,3 +50,75 @@ syncthing
 * add folders via the *add folder* button
 * **configure** the **Share With Devices** part on **each** syncthing installation
 * add *.DS_Store* to **ignore patterns** (if you're on a mac)
+
+## debian init script
+* after everything is configured and running, stop syncthing on your server instance and save the following script to */etc/init.d/syncthing*
+
+```
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: syncthing
+# Required-Start: $local_fs $remote_fs
+# Required-Stop: $local_fs $remote_fs
+# Should-Start: $network
+# Should-Stop: $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Multi-user daemonized version of syncthing.
+# Description: Starts the syncthing daemon for all registered users.
+### END INIT INFO
+
+# Replace with users you want to run syncthing clients for
+syncthing_USERS="jonas"
+DAEMON=/usr/local/bin/syncthing
+
+startd() {
+  for stuser in $syncthing_USERS; do
+    HOMEDIR=$(getent passwd $stuser | awk -F: '{print $6}')
+    if [ -f $config ]; then
+      echo "Starting syncthiing for $stuser"
+      start-stop-daemon -b -o -c $stuser -S -u $stuser -x $DAEMON
+    else
+      echo "Couldn't start syncthing for $stuser (no $config found)"
+    fi
+  done
+}
+
+stopd() {
+  for stuser in $syncthing_USERS; do
+    dbpid=$(pgrep -fu $stuser $DAEMON)
+    if [ ! -z "$dbpid" ]; then
+      echo "Stopping syncthing for $stuser"
+      start-stop-daemon -o -c $stuser -K -u $stuser -x $DAEMON
+    fi
+  done
+}
+
+status() {
+  for stuser in $syncthing_USERS; do
+    dbpid=$(pgrep -fu $stuser $DAEMON)
+    if [ -z "$dbpid" ]; then
+      echo "syncthing for USER $stuser: not running."
+    else
+      echo "syncthing for USER $stuser: running (pid $dbpid)"
+    fi
+  done
+}
+
+case "$1" in
+  start) startd
+    ;;
+  stop) stopd
+    ;;
+  restart|reload|force-reload) stopd && startd
+    ;;
+  status) status
+    ;;
+  *) echo "Usage: /etc/init.d/syncthing {start|stop|reload|force-reload|restart|status}"
+     exit 1
+   ;;
+esac
+
+exit 0
+```
+[source](https://discourse.syncthing.net/t/keeping-syncthing-running-systemd-regular-etc-init-d/402)
