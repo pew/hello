@@ -45,3 +45,8 @@ syncthing
 
 * add/connect every devices via the *add device* button
 * on your client installation, you can enter the hostname and port (example.com:22000) in the *Addresses* field if you have an server running all the time
+
+### add folders
+* add folders via the *add folder* button
+* **configure** the **Share With Devices** part on **each** syncthing installation
+* add *.DS_Store* to **ignore patterns** (if you're on a mac)
