@@ -5,10 +5,11 @@
 
 ## install syncthing
 * extract the archive
-* copy syncthing binary to /usr/local/bin
+* copy syncthing binary to $HOME/bin
 
 ```
-cp syncthing /usr/local/bin/
+mkdir $HOME/bin
+cp syncthing $HOME/bin/
 ```
 
 ## start & configure syncthing
@@ -70,7 +71,7 @@ syncthing
 
 # Replace with users you want to run syncthing clients for
 syncthing_USERS="jonas"
-DAEMON=/usr/local/bin/syncthing
+DAEMON=/home/jonas/bin/syncthing
 
 startd() {
   for stuser in $syncthing_USERS; do
