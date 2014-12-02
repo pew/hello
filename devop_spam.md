@@ -1,4 +1,8 @@
 ### devop stuff
+* https://factor.io
+* http://stackstorm.com
+* http://www.airstack.io
+* https://www.cloudmunch.com
 * https://runbook.io/
 * https://github.com/cloudius-systems/osv
 * https://aws.amazon.com/ecs/
