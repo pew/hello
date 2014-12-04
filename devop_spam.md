@@ -1,4 +1,5 @@
 ### devop stuff
+* http://blog.docker.com/2014/12/announcing-docker-machine-swarm-and-compose-for-orchestrating-distributed-apps/
 * https://factor.io
 * http://stackstorm.com
 * http://www.airstack.io
