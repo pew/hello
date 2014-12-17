@@ -1,4 +1,5 @@
 ### devop stuff
+* https://erisindustries.com/
 * http://www.fabfile.org/en/latest/
 * https://atlas.hashicorp.com/
 * https://ianmiell.github.io/shutit/
