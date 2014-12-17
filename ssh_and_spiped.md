@@ -38,3 +38,10 @@ Host HOSTNAME
 * then just ssh to your host
 
 [source](http://www.daemonology.net/blog/2012-08-30-protecting-sshd-using-spiped.html)
+
+## ssh socks proxy and spiped
+* just use your .ssh/config file and add -D127.0.0.1:1234
+
+```
+ssh HOSTNAME -D127.0.0.1:1234
+```
