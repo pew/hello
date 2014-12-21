@@ -1,4 +1,16 @@
 # resize disk lvm
+## reduce disk size
+
+for swap:
+
+```
+swapoff /dev/vg0/swap
+lvreduce --size 2G /dev/vg0/swap
+mkswap /dev/vg0/swap
+swapon /dev/vg0/swap
+```
+
+---
 
 ## check
 * resize vm disk
