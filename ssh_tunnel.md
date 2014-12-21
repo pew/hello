@@ -1,4 +1,10 @@
 # ssh tunnel
+### add linux user for ssh tunnel
+```
+adduser tunnel
+usermod -s /bin/true tunnel
+```
+
 ### interactive shell
     ssh root@target
     ~C
