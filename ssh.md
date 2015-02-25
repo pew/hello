@@ -12,6 +12,12 @@ ssh -A user@host
 ssh -A -t user@host ssh -A -t user@next-hop
 ```
 
+maybe you have to add your key to ssh agent:
+
+```
+ssh-add -K
+```
+
 ## terminate ssh connection
 ```
 [ENTER]
