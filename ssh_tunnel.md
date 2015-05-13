@@ -39,3 +39,9 @@ from external:
 connect:
 
     ssh -p 4444 root@middleman
+
+### multi hop port forwarding
+
+```
+ssh -L3333:localhost:3333 -L5555:localhost:5555 user@firsthop -t ssh -L3333:target:80 -L5555:target:443 pi@localhost -p2222
+```
