@@ -23,3 +23,24 @@
 **remove all images except** 'my-image' and 'ubuntu':
 
 	docker rmi $(docker images | awk '$1!~/ubuntu|my-image/ && NR>1 {print $3}')
+
+---
+
+# hands-on
+get docker image
+
+```
+docker pull nginx
+```
+
+have a look into nginx docker image
+
+```
+docker run -t -i nginx /bin/bash
+```
+
+start docker image with mounted filesystem
+
+```
+docker run -v /docker/etc/nginx:/etc/nginx:ro -v /docker/var/www:/var/www:rw -p 80:80 -p 443:443 -d nginx
+```
