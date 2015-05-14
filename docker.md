@@ -44,3 +44,10 @@ start docker image with mounted filesystem
 ```
 docker run -v /docker/etc/nginx:/etc/nginx:ro -v /docker/var/www:/var/www:rw -p 80:80 -p 443:443 -d nginx
 ```
+
+# backup / restore (export / import)
+
+```
+docker export c158164fxxx9 > nginx.tar
+docker import - jonas/nginx < nginx.tar
+```
