@@ -52,6 +52,12 @@ docker export c158164fxxx9 > nginx.tar
 docker import - jonas/nginx < nginx.tar
 ```
 
+to run a imported container and avoid `no command specified` start your imported container with a command:
+
+```
+docker run -d -p 80:80 -p 443:443 jonas/nginx nginx
+```
+
 # commit changes
 
 ```
