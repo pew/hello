@@ -7,4 +7,5 @@
 ```
 cat /proc/sys/vm/swappiness
 sysctl vm.swappiness=20
+echo 'vm.swappiness = 20' >> /etc/sysctl.conf
 ```
