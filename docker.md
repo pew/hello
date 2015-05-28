@@ -23,6 +23,13 @@
 **remove all images except** 'my-image' and 'ubuntu':
 
 	docker rmi $(docker images | awk '$1!~/ubuntu|my-image/ && NR>1 {print $3}')
+	
+**complete cleanup**
+
+```
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```
 
 ---
 
