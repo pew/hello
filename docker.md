@@ -3,15 +3,15 @@
 ## building
 **build docker image**
 
-	docker.io build -t jonas/znc .
+	docker build -t jonas/znc .
 	
 ## running
 **run docker image with mounted data folder**
 
-	docker.io run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
+	docker run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
 
-## images	
-### removing
+## containers & images
+### cleaning
 **remove one image**
 
 	docker rmi the_image
