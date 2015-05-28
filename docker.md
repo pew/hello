@@ -1,30 +1,30 @@
 # docker
 [cheat sheet](https://gist.github.com/wsargent/7049221)
 ## building
-**build docker image**
+build docker image:
 
 	docker build -t jonas/znc .
 	
 ## running
-**run docker image with mounted data folder**
+run docker image with mounted data folder
 
 	docker run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
 
 ## containers & images
 ### cleaning
-**remove one image**
+remove one image
 
 	docker rmi the_image
 
-**remove all images**
+remove all images
 
 	docker rmi $(docker images -q)
 
-**remove all images except** 'my-image' and 'ubuntu':
+remove all images except** 'my-image' and 'ubuntu':
 
 	docker rmi $(docker images | awk '$1!~/ubuntu|my-image/ && NR>1 {print $3}')
 	
-**complete cleanup**
+complete cleanup
 
 ```
 docker stop $(docker ps -a -q)
