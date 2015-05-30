@@ -16,3 +16,6 @@ docker commit your-id-again jonas/nginx
 ```
 
 now stop your old container and start the new one (I'm sure there is a better way...)
+
+# see also
+* https://github.com/jpetazzo/nsenter
