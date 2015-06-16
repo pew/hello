@@ -36,3 +36,11 @@ LISTENER =
 
 DEFAULT_SERVICE_LISTENER = (XE)
 ```
+
+## disable password expiring
+
+```
+sqlplus / as sysdba
+SQL > ALTER profile DEFAULT LIMIT PASSWORD_LIFE_TIME unlimited;
+SQL > ALTER profile DEFAULT LIMIT PASSWORD_GRACE_TIME unlimited;
+```
