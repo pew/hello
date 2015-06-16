@@ -1,0 +1,25 @@
+# Vagrantfile example
+descriptions will follow... someday... hopefully.
+
+```
+Vagrant.configure("2") do |config|
+  config.vm.network "forwarded_port", guest: 8888, host: 8888
+  config.vm.network "forwarded_port", guest: 9000, host: 9000
+
+  config.vm.provision :shell, path: "deploy.sh"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  config.vm.box = "box-name"
+  config.vm.hostname = "hostname"
+
+  config.ssh.port = "2222"
+  config.ssh.private_key_path = "insecure_vagrant_key"
+
+  config.vm.provider :virtualbox do |vb|
+    vb.customize [
+      "modifyvm", :id,
+      "--memory", "4096",
+    ]
+  end
+end
+```
