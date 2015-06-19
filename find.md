@@ -20,3 +20,9 @@
 and with multiple matches (.md5, .txt and so on)
 
     find ~/Downloads/ -type f \( -name '*.sha256' -o -name '*.md5' -o -name '*.txt' \) -print0|xargs -0 rm
+
+find some (dmg files) and exclude some (bla.dmg and sup.dmg)
+
+```
+find /path/ -type f \( -iname '*.dmg' ! -iname '*bla*' ! -iname '*sup' \)
+```
