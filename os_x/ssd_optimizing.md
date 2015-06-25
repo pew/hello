@@ -1,5 +1,19 @@
 # optimize os x
 
+## disable swap
+
+```
+sudo nvram boot-args="vm_compressor=2"
+```
+
+additionally (if you want):
+
+```
+sudo pmset -a hibernatemode 0
+sudo rm -rf /private/var/vm/*
+sudo chflags uchg /private/var/vm/
+```
+
 ### disable hibernation mode mac os x (as root/sudo)
 	pmset -a autopoweroff 0
 	pmset -a hibernatemode 0
@@ -9,7 +23,7 @@
 
 	touch /private/var/vm/sleepimage
 	chflags uchg /private/var/vm/sleepimage
-    
+
 #### re-enable hibernation mode
 10.9 defaults:
 
@@ -20,11 +34,3 @@
 	autopoweroff         1
 
 	rm /var/vm/sleepimage
-
-### disable swap (as root/sudo)
-    launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
-    rm /private/var/vm/swapfile*
-
-#### re-enable swap in single user mod (cmd + s on boot):
-    launchctl load /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
-
