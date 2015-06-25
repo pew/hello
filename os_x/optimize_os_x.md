@@ -1,4 +1,5 @@
 # optimize os x
+hello yosemite. finally... forgot about this document.
 
 ## disable swap
 
