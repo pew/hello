@@ -68,6 +68,6 @@ docker run -d -p 80:80 -p 443:443 jonas/nginx nginx
 # commit changes
 
 ```
-docker commit c1237347
+docker commit c1237347 jonas/nginx
 ```
 
