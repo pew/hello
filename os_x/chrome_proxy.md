@@ -6,3 +6,5 @@ use default system settings and use specific proxy settings for chrome or chromi
 open -a /Applications/Google Chrome.app --args --proxy-server="socks5://host:port"
 open -a ~/Applications/Chromium.app --args --proxy-server="socks5://localhost:1337"
 ```
+
+or, try: https://chrome.google.com/webstore/detail/proxy-switchy/caehdcpeofiiigpdhbabniblemipncjj
