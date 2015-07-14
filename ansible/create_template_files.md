@@ -22,7 +22,7 @@ UsePrivilegeSeparation yes
 
 # use it in a playbook
 
-place it to the templates folder, for example: `roles/common/templates/sshd_config.j2` and use it in a playbook, for example: `common/tasks/main.yml`
+place it to the templates folder, for example: `roles/common/templates/sshd_config.j2` and use it in a playbook, for example: `roles/common/tasks/main.yml`
 
 ```
 - name: deploy sshd config
