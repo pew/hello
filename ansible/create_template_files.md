@@ -36,5 +36,5 @@ to restart sshd add the following file `roles/common/handlers/main.yml`
 ```
 ---
 - name: restart sshd
-  service: name=sshd state=restarted
+  service: name=ssh state=restarted
 ```
