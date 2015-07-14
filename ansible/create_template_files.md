@@ -1,5 +1,11 @@
 # create ansible template files
 
+search for original config files (ubuntu / debian):
+
+```
+dpkg -S sshd_config
+```
+
 get config without comments
 
 ```
