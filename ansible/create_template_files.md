@@ -20,3 +20,21 @@ HostKey /etc/ssh/ssh_host_ed25519_key
 UsePrivilegeSeparation yes
 ```
 
+# use it in a playbook
+
+place it to the templates folder, for example: `roles/common/templates/sshd_config.j2` and use it in a playbook, for example: `common/tasks/main.yml`
+
+```
+- name: deploy sshd config
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config backup=yes owner=root group=root mode=0644
+  notify:
+  - restart sshd
+```
+
+to restart sshd add the following file `roles/common/handlers/main.yml`
+
+```
+---
+- name: restart sshd
+  service: name=sshd state=restarted
+```
