@@ -1,7 +1,7 @@
 # openssl
 
 ### create csr
-    openssl req -nodes -newkey rsa:2048 -keyout myserver.key -out myserver.csr
+    openssl req -nodes -newkey rsa:4096 -keyout myserver.key -out myserver.csr
 
 ### encrypt a file
     openssl enc -aes-256-cbc -salt -in file.txt -out file.enc
