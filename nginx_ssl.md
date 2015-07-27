@@ -1,6 +1,10 @@
 # nginx ssl
 
 ```
+server {
+    listen       443 ssl;
+    server_name yo.yo;
+
     ssl_certificate      /etc/nginx/certs/yo.crt;
     ssl_certificate_key  /etc/nginx/certs/yo.key;
 
@@ -13,4 +17,5 @@
     add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
     add_header X-Frame-Options DENY;
     add_header X-Content-Type-Options nosniff;
+}
 ```
