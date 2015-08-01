@@ -7,3 +7,13 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A PREROUTING -p tcp --dport 88 -j DNAT --to-destination 192.168.1.128:88
 iptables -t nat -A POSTROUTING -p tcp -d 192.168.1.128 --dport 88 -j SNAT --to-source 192.168.1.193
 ```
+
+make ip forward permanent:
+
+```
+$ vim /etc/sysctl.conf:
+
+    net.ipv4.ip_forward = 1
+
+$ sysctl -p /etc/sysctl.conf
+```
