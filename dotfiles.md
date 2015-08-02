@@ -18,7 +18,6 @@ antigen bundle rsync
 antigen bundle python
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle history
 antigen bundle tmux
 
 antigen-theme robbyrussell
