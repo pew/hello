@@ -3,7 +3,9 @@
 
 ```
 server {
-    listen       443 ssl;
+    listen          443 ssl;
+    listen     [::]:443 ssl;
+
     server_name  wiki.example.yo;
 
     ssl_certificate      /etc/nginx/certs/yo.crt;

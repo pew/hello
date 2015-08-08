@@ -2,7 +2,9 @@
 
 ```
 server {
-    listen       443 ssl;
+    listen      443 ssl;
+    listen [::]:443 ssl;
+
     server_name yo.yo;
 
     ssl_certificate      /etc/nginx/certs/yo.crt;
