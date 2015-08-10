@@ -1,6 +1,8 @@
 # virtualbox
 
 ### change UUID hard disk
+do not change a UUID of a vm/hard disk if there are snapshots available for thie machine. otherwise: fuckup
+
 ```
 VBoxManage internalcommands sethduuid "path/to/disk"
 ```
