@@ -9,3 +9,9 @@ default:\
         :copyright=/etc/COPYRIGHT:\
         :welcome=/etc/motd:\
 ```
+
+```
+cap_mkdb /etc/login.conf
+```
+
+logout, login, tada!
