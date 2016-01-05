@@ -52,3 +52,9 @@ location / {
 ```
 openssl s_client -connect hostname.lan:port | openssl x509 -noout -dates
 ```
+
+for starttls smtp:
+
+```
+openssl s_client -starttls smtp -connect hostname.lan:port | openssl x509 -noout -dates
+```
