@@ -46,3 +46,9 @@ location / {
 ```
 
 [source (wohoo!)](http://arstechnica.com/information-technology/2014/04/taking-e-mail-back-part-4-the-finale-with-webmail-everything-after/4/)
+
+# check expiration date
+
+```
+openssl s_client -connect hostname.lan:port | openssl x509 -noout -dates
+```
