@@ -6,3 +6,13 @@ or just simply
 ```
 tar xf bla.pkg
 ```
+
+# one more thing
+
+```
+tar xf bla.pkg
+cd payload.pkg
+cat Payload|gunzip -dc|cpio -i
+```
+
+here you go
