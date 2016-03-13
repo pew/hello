@@ -28,7 +28,7 @@ restore:
 ezjail-admin restore -f name-201512311522.07.tar.gz name
 ```
 
-## update ezjail
+## updating jails
 
 ```
 mkdir /basejail
