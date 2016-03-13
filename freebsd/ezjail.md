@@ -17,12 +17,16 @@ ezjail-admin restart <name>
 
 ## backup and restore jail
 
+path for exports: `/usr/jails/ezjail_archives`
+
+create archive:
+
 ```
 ezjail-admin archive <name>
 ezjail-admin archive -f <name>
 ```
 
-restore:
+restore archive:
 
 ```
 ezjail-admin restore -f name-201512311522.07.tar.gz name
