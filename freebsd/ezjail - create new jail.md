@@ -12,6 +12,12 @@ set an alias in `/etc/rc.conf`
 ifconfig_lo1_alias1="inet 172.16.1.2 netmask 255.255.255.255"
 ```
 
+to enable the alias immediately:
+
+```
+ifconfig lo1 alias 172.16.1.2 netmask 255.255.255.255
+```
+
 copy a resolv.conf file to the new jail for DNS resolution:
 
 ```
