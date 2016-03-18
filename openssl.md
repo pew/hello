@@ -58,3 +58,14 @@ for starttls smtp:
 ```
 openssl s_client -starttls smtp -connect hostname.lan:port | openssl x509 -noout -dates
 ```
+
+# extract key and certificate from .pfx file
+
+```
+# get key
+openssl pkcs12 -in cert.pfx -nocerts -out cert.key -nodes
+# get cert
+openssl pkcs12 -in cert.pfx -nokeys -out cert.pem
+# remove pw from key
+openssl rsa -in cert.key -out server.key
+```
