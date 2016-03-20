@@ -30,7 +30,7 @@ I'm assuming we have to NAT to each jail since our server only has one public IP
 
 ```
 cloned_interfaces="lo1"
-ipv4_addrs_lo1="192.168.2.1/24"
+ipv4_addrs_lo1="192.168.2.0/24"
 ```
 
 start the cloned interface right now
