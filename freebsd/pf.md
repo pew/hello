@@ -1,5 +1,23 @@
-# pf example configuraiton
+# pf
 
+### list rules in table:
+```
+pfctl -t TableName -T show
+```
+
+### add ip to table:
+```
+pfctl -t TableName -T add 1.2.3.4
+```
+
+### remove ip from table:
+```
+pfctl -t TableName -T delete 1.2.3.4
+```
+
+
+
+# pf example configuraiton
 add to `/etc/pf.conf`
 
 ```
@@ -23,6 +41,7 @@ root6 = "2a00:000:123:456::2" # define host ipv6
 
 ####################################
 ####  end example jail config	####
+####  note below for ipv6 jail	####
 ####################################
 
 block all # okay
@@ -33,6 +52,9 @@ pass from { lo1, $jail_net } to any keep state # jail_net must be defined above 
 # Allow SSH in to the host
 pass in inet proto tcp to $pub_ip port ssh # allow v4
 pass in inet6 proto tcp to $root6 port ssh # allow v6
+
+## if ipv6 used
+#pass in inet6 proto tcp to $jail_web_ip6 port $jail_web # allow v6 for web
 
 # allow mosh
 pass in inet proto udp to $pub_ip port 60000:60010
