@@ -1,4 +1,9 @@
-# install ezjail
+# ToC
+* [install ezjail](#install)
+* [prepare network](#prepnet)
+* [prepare pf](#preppf)
+
+# install ezjail <a name="install"></a>
 
 ```
 pkg install ezjail
@@ -23,7 +28,7 @@ initial basejail installation
 ezjail-admin install
 ```
 
-# prepare network configuration
+# prepare network configuration <a name='prepnet'></a>
 add the following to `/etc/rc.conf`
 
 I'm assuming we have to NAT to each jail since our server only has one public IPv4
@@ -39,7 +44,7 @@ start the cloned interface right now
 service netif cloneup
 ```
 
-# prepare pf.conf
+# prepare pf.conf <a name='preppf'></a>
 
 add to `/etc/pf.conf`
 
