@@ -47,7 +47,7 @@ root6 = "2a00:000:123:456::2" # define host ipv6
 block all # okay
 
 # allow jail and internal traffic
-pass from { lo1, $jail_net } to any keep state # jail_net must be defined above and lo1 must be the cloned interface
+pass from { lo0, lo1, $jail_net } to any keep state # jail_net must be defined above and lo1 must be the cloned interface
 
 # Allow SSH in to the host
 pass in inet proto tcp to $pub_ip port ssh # allow v4
