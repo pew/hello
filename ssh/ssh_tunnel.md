@@ -45,3 +45,17 @@ connect:
 ```
 ssh -L3333:localhost:3333 -L5555:localhost:5555 user@firsthop -t ssh -L3333:target:80 -L5555:target:443 pi@localhost -p2222
 ```
+
+### forward tunnel with bind IP
+
+to make the tunnel available for others as well and act as a middleman. `192.168.0.8` is the IP of of the middleman dude!
+
+```
+ssh user@server -L 192.168.0.8:32400:localhost:32400
+```
+
+or bind to all interfaces
+
+```
+ssh user@server -L \*:32400:localhost:32400
+```
