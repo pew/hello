@@ -17,3 +17,11 @@ $ vim /etc/sysctl.conf:
 
 $ sysctl -p /etc/sysctl.conf
 ```
+
+## port redirection
+
+80 to 8888
+
+```
+iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8888
+```
