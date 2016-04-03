@@ -28,7 +28,13 @@ pkg upgrade
 
 #### query (find, list) packages
 
-name and version
+search for a package:
+
+```
+pkg search dovecot
+```
+
+list all installed packages by name and version
 
 ```
 pkg query %n-%v
