@@ -21,3 +21,13 @@ server {
     add_header X-Content-Type-Options nosniff;
 }
 ```
+
+redirect from http to https, for real this time:
+
+```
+server {
+    listen       80;
+    listen  [::]:80;
+    return 301 https://$host$request_uri;
+}
+```
