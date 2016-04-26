@@ -31,6 +31,7 @@ remoteuser = username@domain.com
 remotepass = your$super-duper,secure@password
 ssl = yes
 realdelete = no
+createfolders = no
 # path to ssl certs, freebsd example here
 sslcacertfile = /usr/local/etc/ssl/cert.pem
 ```
