@@ -21,5 +21,15 @@ actually mount filesystem
 
 	mount -o loop /dev/mapper/box /mnt
 
-# yo
+# notes
 you should propbably store the key somewhere else
+
+## resize (expand) file system
+let's say the current filesystem is 25G and you want to resize it to 50G, use:
+
+	dd if=/dev/zero of=/fs bs=1 seek=50G count=1
+	# umount /mnt # maybe optional
+	cryptsetup resize box
+	resize2fs /dev/mapper/box
+	mount /dev/mapper/box /mnt
+	
