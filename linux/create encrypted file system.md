@@ -1,4 +1,4 @@
-# create encrypted file system
+# create and mount encrypted file system
 
 create new file for future file system
 
@@ -20,6 +20,18 @@ create filesystem on new disk
 actually mount filesystem
 
 	mount -o loop /dev/mapper/box /mnt
+	
+# mount, umount existing file system
+
+mount:
+
+	cryptsetup luksOpen --key-file=/fs.key /fs box
+	mount -o loop /dev/mapper/box /mnt
+	
+umount:
+
+	umount /mnt
+	cryptsetup luksClose box
 
 # notes
 you should propbably store the key somewhere else
