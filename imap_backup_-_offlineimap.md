@@ -49,7 +49,7 @@ offlineimap -c your-config-file
 or *cron* mode
 
 ```
-offlineimap -c /path/to/your/config -u Noninteractive.Quiet
+offlineimap -c /path/to/your/config -u quiet
 ```
 
 ## example: migrate account
