@@ -40,13 +40,12 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/domain/privkey.pem;
 
 	location / {
-	  #try_files $uri $uri/ /index.html;
-	  root      /var/www/box;
-	  client_body_temp_path /mnt/tmp;
+	  root      /home/box/data;
+	  client_body_temp_path /tmp;
 	  dav_methods		PUT DELETE MKCOL COPY MOVE;
 	  dav_ext_methods	PROPFIND OPTIONS;
 	  create_full_put_path  on;
-	  dav_access    group:rw all:rw;
+	  dav_access    group:rw all:r;
 	  autoindex     on;
 	  auth_basic "restricted";
 	  auth_basic_user_file /etc/nginx/htpasswd;
