@@ -1,5 +1,20 @@
 # ssh remote pipes
+
+stuff
+
+## ssh jump host
+
+stolen from [here](https://www.reddit.com/r/sysadmin/comments/4oxxgv/your_favorite_scripts_you_have_stolen_or_made/d4gp1qo), put into your `~/.ssh/hosts` file and run `ssh first+second+finalhost`
+
+```
+Host *+*
+  ProxyCommand ssh $(echo %h | sed 's/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /') nc -q0 $(echo %h | sed 's/^.*+//;/:/!s/$/ %p/;s/:/ /')
+```
+
 ## file transfer scp & rsync
+
+more stuff
+
 ### ssh / scp middleman
 	ssh -o ProxyCommand='ssh myfirsthop nc -w 10 %h %p' mydestination
 	scp -o ProxyCommand='ssh middleman nc -w 10 %h %p' admin@target:"~/test/*" .
