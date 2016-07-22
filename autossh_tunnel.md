@@ -14,7 +14,7 @@ disable the autossh monitoring port
 and use
 
 ```
--o "ServerAliveInterval 60" -o "ExitOnForwardFailure=yes"
+-o "ServerAliveInterval 60" -o "ExitOnForwardFailure=yes" -o "ConnectTimeout 10"
 ```
 
 instead
@@ -27,7 +27,7 @@ autossh -M 0 -R 8888:localhost:22 user@middleman -p2222
 with custom port
 
 ```
-autossh -M 0 -q -f -N -o "ServerAliveCountMax 3" -o "ServerAliveInterval 60" -o "Port=1337" -o "ExitOnForwardFailure=yes" -R2222:localhost:22 user@server
+autossh -M 0 -q -f -N -o "ConnectTimeout 10" -o "ServerAliveCountMax 3" -o "ServerAliveInterval 60" -o "Port=1337" -o "ExitOnForwardFailure=yes" -R2222:localhost:22 user@server
 ```
 
 ### vnc tunnel example
