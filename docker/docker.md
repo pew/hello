@@ -18,7 +18,7 @@ remove one image
 
 remove all images
 
-	docker rmi $(docker images -q)
+	docker rmi -f $(docker images -q -a -f dangling=true)
 
 remove all images except** 'my-image' and 'ubuntu':
 
@@ -40,10 +40,11 @@ get docker image
 docker pull nginx
 ```
 
-have a look into nginx docker image
+have a look into nginx docker image or a running container
 
 ```
-docker run -t -i nginx /bin/bash
+docker ps # get the id
+docker exec -i -t bb8658e2b9d0 /bin/bash
 ```
 
 start docker image with mounted filesystem
