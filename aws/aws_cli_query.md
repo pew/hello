@@ -11,3 +11,9 @@ aws ec2 describe-instances --output text --query 'Reservations[*].Instances[*].[
 ```
 aws rds describe-db-instances --region eu-west-1 --output text --query 'DBInstances[*].[MultiAZ,Engine,Endpoint.Address]'
 ```
+
+... sort based on endpoint name:
+
+```
+aws rds describe-db-instances --region eu-west-1 --output text --query 'DBInstances[*].[MultiAZ,Engine,Endpoint.Address]'|sort -k 3,3
+```
