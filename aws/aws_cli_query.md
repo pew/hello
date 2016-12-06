@@ -1,8 +1,8 @@
 # aws cli queries
 hi.
 
-## ec2
-ec2 queries
+## EC2
+EC2 queries
 
 ### query for instance name, ID, private and public IP
 
@@ -10,8 +10,8 @@ ec2 queries
 aws ec2 describe-instances --output text --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0], InstanceId, PublicIpAddress, PrivateIpAddress]'
 ```
 
-## rds
-rds queries
+## RDS
+RDS queries
 
 ### query rds instances: multi-az, engine, endpoint address
 
