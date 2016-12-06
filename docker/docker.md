@@ -8,27 +8,31 @@ build docker image:
 ## running
 run docker image with mounted data folder
 
-	docker run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
+```
+docker run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
+```
 
 ## containers & images
+
 ### cleaning
 remove one image
 
-	docker rmi the_image
-
-remove all images
-
-	docker rmi -f $(docker images -q -a -f dangling=true)
+```
+docker rmi the_image
+```
 
 remove all images except** 'my-image' and 'ubuntu':
 
-	docker rmi $(docker images | awk '$1!~/ubuntu|my-image/ && NR>1 {print $3}')
+```
+docker rmi $(docker images | awk '$1!~/ubuntu|my-image/ && NR>1 {print $3}')
+```
 	
 complete cleanup
 
 ```
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
+docker rmi -f $(docker images -q -a -f dangling=true)
 ```
 
 ---
