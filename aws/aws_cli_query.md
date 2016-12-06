@@ -17,3 +17,9 @@ aws rds describe-db-instances --region eu-west-1 --output text --query 'DBInstan
 ```
 aws rds describe-db-instances --region eu-west-1 --output text --query 'DBInstances[*].[MultiAZ,Engine,Endpoint.Address]'|sort -k 3,3
 ```
+
+## query rds instance: identifier, multi-az, engine, endpoint (sort by identifier)
+
+```
+aws rds describe-db-instances --region eu-west-1 --output text --query 'DBInstances[*].[DBInstanceIdentifier,MultiAZ,Engine,Endpoint.Address]'|sort -h|column -t
+```
