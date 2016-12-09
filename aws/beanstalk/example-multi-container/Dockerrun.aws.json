@@ -1,0 +1,77 @@
+
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "nginx-proxy-conf",
+      "host": {
+        "sourcePath": "/var/app/current/proxy/conf.d"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "nginx-proxy",
+      "image": "nginx",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        },
+        {
+          "hostPort": 443,
+          "containerPort": 443
+        }
+      ],
+      "links": [
+        "app-a",
+        "app-b"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "awseb-logs-nginx-proxy",
+          "containerPath": "/var/log/nginx"
+        },
+        {
+          "sourceVolume": "nginx-proxy-conf",
+          "containerPath": "/etc/nginx/conf.d",
+          "readOnly": true
+        }
+		]
+ 	},
+    {
+      "name": "app-a",
+      "image": "abc.dkr.ecr.us-east-1.amazonaws.com/app",
+      "essential": true,
+      "memory": 128,
+      "command": [
+        "python",
+        "./application.py"
+      ],
+      "environment": [
+        {
+          "name": "hi",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "app-b",
+      "image": "abc.dkr.ecr.us-east-1.amazonaws.com/app",
+      "essential": true,
+      "memory": 128,
+      "command": [
+        "python",
+        "./application.py"
+      ],
+      "environment": [
+        {
+          "name": "sup",
+          "value": "false"
+        }
+      ]
+    }
+  ]
+}
