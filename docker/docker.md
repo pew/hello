@@ -10,7 +10,7 @@ build docker image:
 	docker build -t jonas/znc .
 	
 ## running
-run docker image with mounted data folder
+run docker image with a shared (mount) from the host system
 
 ```
 docker run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
@@ -18,7 +18,9 @@ docker run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
 
 ## containers & images
 
-### cleaning
+ok.
+
+### cleanup
 remove one image
 
 ```
@@ -39,44 +41,21 @@ docker rm $(docker ps -a -q)
 docker rmi -f $(docker images -q -a)
 ```
 
----
+## docker inspect
 
-# hands-on
-get docker image
-
-```
-docker pull nginx
-```
-
-have a look into nginx docker image or a running container
+just run
 
 ```
-docker ps # get the id
-docker exec -i -t bb8658e2b9d0 /bin/bash
+docker inspect name
 ```
 
-start docker image with mounted filesystem
+to get all information.
+
+### inspect volumes
+
+just get the mounts
 
 ```
-docker run -v /docker/etc/nginx:/etc/nginx:ro -v /docker/var/www:/var/www:rw -p 80:80 -p 443:443 -d nginx
-```
-
-# backup / restore (export / import)
-
-```
-docker export c158164fxxx9 > nginx.tar
-docker import - jonas/nginx < nginx.tar
-```
-
-to run a imported container and avoid `no command specified` start your imported container with a command:
-
-```
-docker run -d -p 80:80 -p 443:443 jonas/nginx nginx
-```
-
-# commit changes
-
-```
-docker commit c1237347 jonas/nginx
+docker inspect -f {{.Mounts}} name
 ```
 
