@@ -1,5 +1,9 @@
 # docker
-[cheat sheet](https://gist.github.com/wsargent/7049221)
+* [cheat sheet](https://gist.github.com/wsargent/7049221)
+* [docker compose](https://docs.docker.com/compose/)
+* [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
+
+
 ## building
 build docker image:
 
