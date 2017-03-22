@@ -7,8 +7,8 @@
 ## building
 build docker image:
 
-	docker build -t jonas/znc .
-	
+    docker build -t jonas/znc .
+
 ## running
 run docker image with a shared (mount) from the host system
 
@@ -21,6 +21,8 @@ docker run -d -p 60667 -v /home/jonas/.znc:/znc-data jonas/znc
 ok.
 
 ### cleanup
+
+
 remove one image
 
 ```
@@ -32,7 +34,7 @@ remove all images except** 'my-image' and 'ubuntu':
 ```
 docker rmi $(docker images | awk '$1!~/ubuntu|my-image/ && NR>1 {print $3}')
 ```
-	
+
 complete cleanup
 
 ```
@@ -40,6 +42,16 @@ docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 docker rmi -f $(docker images -q -a)
 ```
+
+#### remove unused images and container
+
+they added this with some recent version:
+
+```
+docker image prune
+docker system prune
+```
+
 
 ## docker inspect
 
