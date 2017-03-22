@@ -71,3 +71,24 @@ just get the mounts
 docker inspect -f {{.Mounts}} name
 ```
 
+# docker networking
+
+create new network:
+
+```
+docker network create --driver bridge some-name
+```
+
+run container in new network:
+
+```
+docker run --network=some-name -itd --name=app ubuntu
+```
+
+run another container in same network:
+
+```
+docker run --network=some-name -itd --name=db postgres
+```
+
+If you `exec` or `attach` to the docker containers, they can ping each other. `ping app`, `ping db`
