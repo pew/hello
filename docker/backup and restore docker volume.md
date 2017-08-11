@@ -1,33 +1,39 @@
 # backup and restore docker volume
 
-### backup
+create a backup of volumes created with `docker volume`
+
+## backup
 
 ```
-docker run --rm --volumes-from ContainerName -v $(pwd):/backup alpine tar cvf /backup/backup.tar /var/jenkins_home
+docker run --rm -v test_gollum:/volume -v /tmp:/backup alpine tar cvf /backup/backup.tar /volume
 ```
 
-* runs an `alpine` docker container
-* bind mount `$(pwd):/backup`
-* run `tar` of `/var/jenkins_home` to `/backup/backup.tar`
+* `test_gollum` - volume to be backed up
+* `-v /tmp:/backup` mount local `/tmp/` to `/backup` in container
 
-### restore
+this command creates a `backup.tar` in `/tmp/`, so you might want to change the `tmp` part
 
-either you have a container (with volume) already or create one with `docker volume create`, you also need a container running. quick example:
-
-```
-docker run -v testvol:/var/jenkins_home -d alpine ping 8.8.8.8
-```
-
-(this command created `jovial_wozniak`)
+## restore
 
 ```
-docker run --rm --volumes-from jovial_wozniak -v $(pwd):/backup alpine tar xvf /backup/backup.tar
+docker run --rm -v testtest:/volume -v $(pwd):/backup alpine tar xvf /backup/backup.tar
 ```
 
-check the files:
+* `testtest` - NEW volume name to restore to (was for testing purposes)
+* `-v $(pwd):/backup` - mount current dir (in this case `/tmp/` to temporary docker container to restore `backup.tar`
+
+# example
+
+## backup all volumes
+
+backup all `docker volumes` beginning with prefix `test`
 
 ```
-docker exec -it jovial_wozniak ls -l /var/jenkins_home
+for i in $(docker volume ls -f name=test -q); do docker run --rm -v $i:/volume -v /tmp:/backup alpine tar cvf /backup/$i.tar /volume;done
 ```
 
-gg
+## restore all volumes
+
+```
+for i in *.tar;do docker run --rm -v ${i%%.*}:/volume -v $(pwd):/backup alpine tar xvf /backup/$i; done
+```
