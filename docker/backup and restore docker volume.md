@@ -32,7 +32,11 @@ backup all `docker volumes` beginning with prefix `test`
 for i in $(docker volume ls -f name=test -q); do docker run --rm -v $i:/volume -v /tmp:/backup alpine tar cvf /backup/$i.tar /volume;done
 ```
 
+everything is backed up to `/tmp/CONTAINER_NAME.tar`
+
 ## restore all volumes
+
+assuming you're in `/tmp/`
 
 ```
 for i in *.tar;do docker run --rm -v ${i%%.*}:/volume -v $(pwd):/backup alpine tar xvf /backup/$i; done
